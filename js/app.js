@@ -26,5 +26,16 @@ document.getElementById('btn-search').addEventListener('click', function(){
      searchField.value = '';
 });
 
+
+document.getElementById('input-field').addEventListener('keypress', function(e){
+    if( e.key === "Enter"){
+        const searchField = document.getElementById('input-field');
+        const searchValue = searchField.value;
+        loadWeatherData(searchValue)
+        searchField.value = '';
+    }
+});
+
+
 loadWeatherData('dhaka')
 
