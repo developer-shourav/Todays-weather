@@ -4,7 +4,17 @@ const loadWeatherData = (city) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
     fetch(url)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => displayWebData(data))
 }
 
+const displayWebData = data => {
+
+}
+
+document.getElementById('btn-search').addEventListener('click', function(){
+     const searchValue = document.getElementById('input-field').value;
+     loadWeatherData(searchValue)
+});
+
 loadWeatherData('dhaka')
+
