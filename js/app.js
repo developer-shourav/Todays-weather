@@ -8,12 +8,22 @@ const loadWeatherData = (city) => {
 }
 
 const displayWebData = data => {
+    console.log(data);
+    const cityName = document.getElementById('city');
+    cityName.innerText = data.name;
+    const temperature = document.getElementById('temperature');
+    temperature.innerText = data?.main?.temp;
+    const status = document.getElementById('status');
+    status.innerText = data?.weather[0]?.main;
 
+    
 }
 
 document.getElementById('btn-search').addEventListener('click', function(){
-     const searchValue = document.getElementById('input-field').value;
+     const searchField = document.getElementById('input-field');
+     const searchValue = searchField.value;
      loadWeatherData(searchValue)
+     searchField.value = '';
 });
 
 loadWeatherData('dhaka')
